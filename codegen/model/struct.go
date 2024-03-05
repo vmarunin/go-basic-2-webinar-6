@@ -1,4 +1,6 @@
-package main
+package smartyapi
+
+//go:generate easyjson --all struct.go
 
 type SmartyStreetsAPI []struct {
 	InputIndex           int        `json:"input_index,omitempty"`
@@ -9,9 +11,6 @@ type SmartyStreetsAPI []struct {
 	Components           Components `json:"components,omitempty"`
 	Metadata             Metadata   `json:"metadata,omitempty"`
 	Analysis             Analysis   `json:"analysis,omitempty"`
-	// Components json.RawMessage
-	// Metadata   json.RawMessage
-	// Analysis   json.RawMessage
 }
 
 type Components struct {

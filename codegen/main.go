@@ -2,9 +2,10 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 
-	"gopkg.in/yaml.v2"
+	smartyapi "github.com/vmarunin/go-basic-2-webinar-6/codegen/model"
 )
 
 func main() {
@@ -12,16 +13,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	var smarty SmartyStreetsAPI
+	var smarty smartyapi.SmartyStreetsAPI
 	err = json.Unmarshal(data, &smarty)
 	if err != nil {
 		panic(err)
 	}
 
-	data, err = yaml.Marshal(&smarty)
-	if err != nil {
-		panic(err)
-	}
-	// fmt.Println(string(data))
-	// fmt.Println(string(smarty[0].Components))
+	fmt.Println(smarty[0].LastLine)
 }
